@@ -1,0 +1,188 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Login | Sisfo Bina Darma</title>
+    <!-- Favicon-->
+    <link rel="icon" href="https://sisfo.binadarma.ac.id/assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">-->
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://sisfo.binadarma.ac.id/assets/font-awesome/css/font-awesome.min.css"> 
+
+    <!-- Bootstrap Core Css -->
+    <link href="https://sisfo.binadarma.ac.id/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="https://sisfo.binadarma.ac.id/assets/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="https://sisfo.binadarma.ac.id/assets/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="https://sisfo.binadarma.ac.id/template/material-design/css/style.css" rel="stylesheet">
+
+    <!-- Jquery Core Js -->
+    <script src="https://sisfo.binadarma.ac.id/assets/jquery/jquery-1.10.2.min.js"></script>
+</head>
+
+<body class="login-page" id="body-touch">
+	<!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+
+    <div class="login-box">
+        <div class="logo">
+            <a href="javascript:void(0);"><img src="https://sisfo.binadarma.ac.id/assets/images/boey33Tnew.png" class="responsive" width="235px"></a><br>
+            <small><b>STUDIO AHMAD OKTAREZA</b></small>
+        </div>
+        <div class="card">
+            <div class="body">
+                <form id="login" method="POST" action="cek_login.php">
+    <input type="hidden" name="ref" value="https://www.google.com/">
+    <!--<div class="msg">Login untuk memulai</div>-->
+    <div class="input-group" style="padding-top: 20px;">
+        <span class="input-group-addon">
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </span>
+        <div class="form-line">
+            <input type="text" class="form-control" name="username" placeholder="Hobi / Alamat / Nama Pacar" required autofocus>
+        </div>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+        </span>
+        <div class="form-line">
+            <input type="password" class="form-control" name="password" placeholder="Panggilan Alay" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-8">
+            <a target="_blank" href='https://play.google.com/store/apps/details?id=id.ac.binadarma.ubdmobilemahasiswa'><img width="105" src='https://sisfo.binadarma.ac.id//assets/images/get_it_on.png' class="responsive"/></a>
+        </div>
+        <div class="col-xs-4">
+            <button class="btn btn-block bg-indigo waves-effect" type="submit">LOGIN</button>
+        </div>
+    </div>
+    <div class="row m-t-15 m-b--20 pading-under-login-box">
+        <div class="col-xs-6">
+            <a href="login.php?act=aktivasi_mhs">Mahasiswa Teladan Masuk !!!</a>
+        </div>
+        <div class="col-xs-6 align-right">
+            <a href="login.php?act=lupa_password">Mahasiswa Santuy Masuk !!!</a>
+        </div>
+    </div>
+    <div class="row m-t-15 m-b--20 pading-under-login-box">
+<!--         <div class="col-xs-12"">
+            <hr>
+            <h4 style="text-align: center;">AVAILABLE NOW</h4>
+        </div> -->
+<!--         <div class="col-xs-12">
+            <center>                
+            <a href='https://play.google.com/store/apps/details?id=id.ac.binadarma.ubdmobilemahasiswa'><img width="150" src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
+            </center>
+        </div> -->
+    </div>
+</form>
+
+<script type="text/javascript">
+$(function () {
+    $('#login').validate({
+        highlight: function (input) {
+            console.log(input);
+            $(input).parents('.form-line').addClass('error');
+        },
+        unhighlight: function (input) {
+            $(input).parents('.form-line').removeClass('error');
+        },
+        errorPlacement: function (error, element) {
+            $(element).parents('.input-group').append(error);
+        }
+    });
+
+    /*var touchsurface = document.getElementById('body-touch'),
+        startX,
+        startY,
+        dist,
+        threshold = 150, //required min distance traveled to be considered swipe
+        allowedTime = 200, // maximum time allowed to travel that distance
+        elapsedTime,
+        startTime
+ 
+    function handleswipe(isrightswipe){
+        if (isrightswipe)
+            alert('Right');
+            //touchsurface.innerHTML = 'Congrats, you\'ve made a <span style="color:red">right swipe!</span>'
+        else{
+            alert('Not Allowed');
+            //touchsurface.innerHTML = 'Condition for right swipe not met yet'
+        }
+    }
+ 
+    touchsurface.addEventListener('touchstart', function(e){
+        //touchsurface.innerHTML = ''
+        var touchobj = e.changedTouches[0]
+        dist = 0
+        startX = touchobj.pageX
+        startY = touchobj.pageY
+        startTime = new Date().getTime() // record time when finger first makes contact with surface
+        e.preventDefault()
+    }, false)
+ 
+    touchsurface.addEventListener('touchmove', function(e){
+        e.preventDefault() // prevent scrolling when inside DIV
+    }, false)
+ 
+    touchsurface.addEventListener('touchend', function(e){
+        var touchobj = e.changedTouches[0]
+        dist = touchobj.pageX - startX // get total dist traveled by finger while in contact with surface
+        elapsedTime = new Date().getTime() - startTime // get time elapsed
+        // check that elapsed time is within specified, horizontal dist traveled >= threshold, and vertical dist traveled <= 100
+        var swiperightBol = (elapsedTime <= allowedTime && dist >= threshold && Math.abs(touchobj.pageY - startY) <= 100)
+        handleswipe(swiperightBol)
+        e.preventDefault()
+    }, false)*/
+
+});
+</script>            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap Core Js -->
+    <script src="https://sisfo.binadarma.ac.id/assets/bootstrap-3.2.0/js/bootstrap.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="https://sisfo.binadarma.ac.id/assets/node-waves/waves.js"></script>
+
+    <!-- Validation Plugin Js -->
+    <script src="https://sisfo.binadarma.ac.id/assets/jquery-validate/jquery.validate.min.js"></script>
+
+    <!-- Custom Js -->
+    <script src="https://sisfo.binadarma.ac.id/template/material-design/js/material-design.js"></script>
+</body>
+
+</html>
